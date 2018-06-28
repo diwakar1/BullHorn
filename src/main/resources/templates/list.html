@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<a href = "/add"> you want add message content</a><br/>
+<table>
+    <tr>
+        <th> ID</th>
+        <th>PostDate </th>
+        <th>SentBy</th>
+        <td> Actions</td>
+    </tr>
+    <tr th:each="bullhorn:${bullhorns}">
+       <td th:text="${bullhorn.id}"></td>
+        <td th:text="${bullhorn.postedDate}"></td>
+        <td th:text="${bullhorn.sentBy}"></td>
+        <td th:text="${bullhorn.content}"></td>
+        <td>
+
+            <a th:href="@{/detail/{id}(id=${bullhorn.id})}">Details</a>
+            <a th:href="@{/update/{id}(id=${bullhorn.id})}">Update</a>
+
+        </td>
+
+
+
+
+    </tr>
+
+
+
+</table>
+
+
+</body>
+</html>
